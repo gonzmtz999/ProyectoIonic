@@ -24,3 +24,13 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+body{
+    padding: 0;
+    width: 0;
+}
+
+html,body, #mapId {
+    height: 100%;
+    width: 100vw;
+}

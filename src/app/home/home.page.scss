@@ -1,1 +1,17 @@
+ion-content.background {
+  --background: none;
+  background: url('https://fotos.subefotos.com/e45a3698ef2a6b6b9ea311525d63e05fo.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; //300px
+  
+}
 
+ion-toolbar {
+  height: 20px;;
+}
+
+ion-input{
+  background-color: white;
+  border-radius: 15px;
+}
