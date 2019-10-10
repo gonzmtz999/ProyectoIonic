@@ -1,0 +1,25 @@
+{
+    "fletes" : [
+        {
+            "id":1,
+            "image":"../../assets/furgon.jpg",
+            "nombre":"Furgoneta",
+            "precioAprox":"$2350.00 MX",
+            "descripcion":"Le caben aproximadamente 8 muebles, este vehiculo normalmente es usado para mudanzas chicas"
+        },
+        {
+            "id":2,
+            "image":"../../assets/camion.png",
+            "nombre":"Camion",
+            "precioAprox":"$6750.00 MX",
+            "descripcion":"Le caben aproximadamente 18 muebles, este vehiculo normalmente es usado para mudanzas grandes"
+        },
+    {
+        "id":3,
+        "image":"../../assets/fletes.png",
+        "nombre":"Camioneta",
+        "precioAprox":"$4120.00 MX",
+        "descripcion":"Le caben aproximadamente 12 muebles, este vehiculo normalmente es usado para mudanzas medianas"
+    }
+    ]
+}
