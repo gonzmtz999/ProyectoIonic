@@ -9,6 +9,6 @@ export class FleteDataSourceService {
   constructor(private http: HttpClient) { }
 
   getFletes(): any {
-    return this.http.get('http://localhost:3000/fletes');
+    return this.http.get('./assets/fletes.json');
   }
 }

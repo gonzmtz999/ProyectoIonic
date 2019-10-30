@@ -3,18 +3,17 @@ import { FleteRepositoryService } from '../flete-repository.service';
 
 @Component({
   selector: 'app-pedidos',
-  templateUrl: './pedidos.component.html',
-  styleUrls: ['./pedidos.component.scss'],
+  templateUrl: './pedidos.page.html',
+  styleUrls: ['./pedidos.page.scss'],
 })
-export class PedidosComponent implements OnInit {
-
+export class PedidosPage implements OnInit {
+  valor='';
   constructor(private fleteRepository: FleteRepositoryService) { }
 
   ngOnInit() {
-    console.log('init');
+    console.log(this.fleteRepository);
   }
   get fletes() {
     return this.fleteRepository.getFletes();
   }
-
 }

@@ -8,6 +8,7 @@ import {Map, tileLayer,marker,circle,icon} from 'leaflet';
   styleUrls: ['./maps.page.scss'],
 })
 export class MapsPage {
+  valor='';
 
   map:Map;
 
@@ -48,94 +49,7 @@ export class MapsPage {
     .bindPopup('Ionic <br> Leaflet')
     .openPopup();
 
-    var polygon = polygon([
-      [18.4595645, -97.3945886],
-      [18.468456, -97.39809],
-      [18.462106, -97.393541]
-    ]).addTo(this.map);
-
-
-   circle([18.473328,-97.3949967], {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 300
-      
-    }).addTo(this.map);
-
-    circle([18.476910, -97.3897727], {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 300
-    }).addTo(this.map);
-
-    circle([18.469003, -97.389708], {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 300
-      
-    }).addTo(this.map);
-
-
-    circle([18.462582, -97.392647], {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 300
-    }).addTo(this.map);
-
-    circle([18.464913, -97.399074], {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 300
-    }).addTo(this.map);
-
-    circle([18.466785, -97.386092], {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 300
-    }).addTo(this.map);
-
-
-
-
-    const greenIcon = icon({
-      iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png',
-      shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
-      iconSize:     [38, 95], // size of the icon
-      shadowSize:   [50, 64], // size of the shadow
-      iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-      shadowAnchor: [4, 62],  // the same for the shadow
-      popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-    });
-    marker([18.470287, -97.392486], {icon: greenIcon}).addTo(this.map);
-
-    const orangeIcon = icon({
-      iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-orange.png',
-      shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
-      iconSize:     [38, 95], // size of the icon
-      shadowSize:   [50, 64], // size of the shadow
-      iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-      shadowAnchor: [4, 62],  // the same for the shadow
-      popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-    });
-    marker([18.470317, -97.391295], {icon: orangeIcon}).addTo(this.map);
-
-
-    const  redIcon = icon({
-      iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-red.png',
-      shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
-      iconSize:     [38, 95], // size of the icon
-      shadowSize:   [50, 64], // size of the shadow
-      iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-      shadowAnchor: [4, 62],  // the same for the shadow
-      popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-    });
-    marker([18.470347, -97.390402], {icon: redIcon}).addTo(this.map);
+    
 
         
     }

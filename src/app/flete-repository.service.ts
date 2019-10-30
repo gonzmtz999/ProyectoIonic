@@ -10,7 +10,7 @@ export class FleteRepositoryService {
   constructor(private dataSource: FleteDataSourceService) {
     this.dataSource.getFletes()
     .subscribe((response) => {
-      this.fletes = response;
+      this.fletes = response.fletes;
     });
   }
   getFletes(): Flete[] {
