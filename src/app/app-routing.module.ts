@@ -6,10 +6,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   { path: 'maps/:id ', loadChildren: './maps/maps.module#MapsPageModule' },
-  { path: 'pedidos', loadChildren: './pedidos/pedidos.module#PedidosPageModule' },  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' }
-
-
-
+  { path: 'pedidos', loadChildren: './pedidos/pedidos.module#PedidosPageModule' },
+  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
+  { path: 'evaluar', loadChildren: './evaluar/evaluar.module#EvaluarPageModule' }
 
 ];
 

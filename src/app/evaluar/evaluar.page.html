@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <h1 style="text-align: center">Viaje Exitoso</h1>
+  <h4 style="text-align: center">Califica esto</h4>
+  <rating [rate]="rate" readonly="false" size="default" (rateChange)="onRateChange($event)">
+  </rating>
+  <ion-button class="evaluar" expand="block">
+  <ion-icon name="send"></ion-icon> enviar
+  </ion-button>
+  <ion-button class="evaluar" expand="block" [routerLink]="['/pedidos']">
+    <ion-icon name="arrow-round-back"></ion-icon> Regresar
+  </ion-button>
+</ion-content>
