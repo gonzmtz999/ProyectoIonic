@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'maps/:id ', loadChildren: './maps/maps.module#MapsPageModule' },
   { path: 'pedidos', loadChildren: './pedidos/pedidos.module#PedidosPageModule' },
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
-  { path: 'evaluar', loadChildren: './evaluar/evaluar.module#EvaluarPageModule' }
+  { path: 'evaluar', loadChildren: './evaluar/evaluar.module#EvaluarPageModule' },  { path: 'pedido-exitoso', loadChildren: './pedido-exitoso/pedido-exitoso.module#PedidoExitosoPageModule' }
+
 
 ];
 

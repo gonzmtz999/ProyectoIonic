@@ -46,7 +46,7 @@ export class MapsPage {
 
     marker([18.473349, -97.389898])
     .addTo(this.map)
-    .bindPopup('Ionic <br> Leaflet')
+    .bindPopup('Su coche: <br> Se encuentra aca')
     .openPopup();
 
     
@@ -56,12 +56,6 @@ export class MapsPage {
     ionViewWillLeave(){
       this.map.remove();
     }
-
-
-    
-    
-
-   
 
   }
 

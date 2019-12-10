@@ -2,19 +2,92 @@
   <div class="ion-padding">
     <img src="../../assets/FF.png">
     <br><br>
-    <form>
-        <ion-input placeholder="NOMBRE COMPLETO: "></ion-input>
-        <ion-input placeholder="USUARIO: "></ion-input>
-        <ion-input placeholder="TELEFONO: "></ion-input>
-        <ion-input placeholder="FECHA DE NACIMIENTO: "></ion-input>
-        <ion-input placeholder="CORREO ELECTRONICO: "></ion-input>
-        <ion-input placeholder="CONTRASEÑA: " type="password"></ion-input>
-        <ion-input placeholder="CONFIRMAR CONTRASEÑA: " type="password"></ion-input>
-        <ion-checkbox color="tertiary" checked slot="start"></ion-checkbox>
-            <ion-label>Aceptas terminos y condiciones</ion-label>
+    <form name="form" #f="ngForm" (ngSubmit)="(clientForm)">
+      <ion-input placeholder="NOMBRE COMPLETO:" type="text" name="nombre" id="nombre" [(ngModel)]="data.nombre"
+        #nombre="ngModel" required minlength="3" pattern="[a-zA-Z ]*"></ion-input>
+      <div *ngIf="nombre.invalid || (nombre.dirty && nombre.touched)">
+        <p *ngIf="nombre.hasError('required')" class="inputalert">
+          Nombre es requerido
+        </p>
+        <p *ngIf="nombre.hasError('minlength')" class="alerta">
+          El nombre debe tener más de tres letras
+        </p>
+        <p *ngIf="nombre.hasError('pattern')">
+          No puede poner numeros
+        </p>
+      </div>
+
+      <ion-input placeholder="USUARIO:" type="text" name="usuario" id="usuario" [(ngModel)]="data.usuario"
+        #usuario="ngModel" required minlength="4"></ion-input>
+      <div *ngIf="usuario.invalid || (usuario.dirty && usuario.touched)">
+        <p *ngIf="usuario.hasError('required')" class="inputalert">
+          Elija un apodo
+        </p>
+        <p *ngIf="usuario.hasError('minlength')" class="alerta">
+          El apodo debe tener más de cuatro caracteres
+        </p>
+      </div>
+
+      <ion-input placeholder="TELEFONO:" type="text" name="telefono" id="telefono" [(ngModel)]="data.telefono"
+      #telefono="ngModel" required minlength="10" pattern="[0-9]+"></ion-input>
+      <div *ngIf="telefono.invalid || (telefono.dirty && telefono.touched)">
+        <p *ngIf="telefono.hasError('required')" class="inputalert">
+          Telefono es requerido
+        </p>
+        <p *ngIf="telefono.hasError('minlength')" class="alerta">
+          El telefono debe tener minimo 10  numeros
+        </p>
+        <p *ngIf="telefono.hasError('pattern')">
+          No puede poner Letras
+        </p>
+      </div>
+
+      <ion-input placeholder="FECHA DE NACIMIENTO:" type="text" name="nacimiento" id="nacimiento" [(ngModel)]="data.nacimiento"
+      #nacimiento="ngModel" required minlength="10" pattern="[0-9 ]*"></ion-input>
+      <div *ngIf="nacimiento.invalid || (nacimiento.dirty && nacimiento.touched)">
+        <p *ngIf="nacimiento.hasError('required')" class="inputalert">
+          Fecha de nacimiento requerida
+        </p>
+        <p *ngIf="nacimiento.hasError('minlength')" class="alerta">
+          La fecha debe tener 10 caracteres (15 02 2000)
+        </p>
+        <p *ngIf="nacimiento.hasError('pattern')">
+          No puede poner caracteres especiales
+        </p>
+      </div>
+
+      <ion-input placeholder="CORREO ELECTRONICO:" type="email" name="email" id="email" [(ngModel)]="data.email"
+      #email="ngModel" required minlength="5" pattern="[a-zA-Z0-9.-@]*"></ion-input>
+      <div *ngIf="email.invalid || (email.dirty && email.touched)">
+        <p *ngIf="email.hasError('required')" class="inputalert">
+          Correo requerido
+        </p>
+        <p *ngIf="email.hasError('minlength')" class="alerta">
+          El correo debe tener 6 caracteres minimo
+        </p>
+        <p *ngIf="email.hasError('pattern')">
+          Formato invalido (ejemplo@extension.com)
+        </p>
+      </div>
+
+      <ion-input placeholder="CONTRASEÑA: " type="password"  name="contrasena" id="contrasena" 
+      [(ngModel)]="data.contrasena" #contrasena="ngModel" required minlength="4" ></ion-input>
+      <div *ngIf="contrasena.invalid || (contrasena.dirty && contrasena.touched)">
+        <p *ngIf="contrasena.hasError('required')" class="inputalert">
+          Contraseña requerida
+        </p>
+        <p *ngIf="contrasena.hasError('minlength')" class="alerta">
+          La contraseña debe tener minimo 4 caracteres
+        </p>
+      </div>
+      <br>
+    
+      <ion-button color="tertiary" [routerLink]="['/maps',valor]" type="submit" (click)="createClient(); presentAlert();
+     presentToast();presentToast();" [disabled]="!f.valid">Registrarse</ion-button>
+     
     </form>
     <br>
-    <ion-button color="tertiary" [routerLink]="['/maps',valor]">Registrarse</ion-button>
-    <ion-button color="tertiary" [routerLink]="['/home']" >Cancelar</ion-button>
-</div>
+    
+    <ion-button color="tertiary" [routerLink]="['/home']">Cancelar</ion-button>
+  </div>
 </ion-content>

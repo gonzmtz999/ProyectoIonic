@@ -12,10 +12,25 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireDatabaseModule } from "@angular/fire/database";
+
+
+var firebaseConfig = {
+  apiKey: "AIzaSyAnUNS7d8J3qzagBTOpHwp_RAOFfd4-Qs0",
+  authDomain: "fletesapp-ee631.firebaseapp.com",
+  databaseURL: "https://fletesapp-ee631.firebaseio.com",
+  projectId: "fletesapp-ee631",
+  storageBucket: "fletesapp-ee631.appspot.com",
+  messagingSenderId: "1082546361054",
+  appId: "1:1082546361054:web:b0d6b4c45488bc3417a84f"
+};
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule,IonicRatingModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule,AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule, IonicModule.forRoot(), AppRoutingModule,IonicRatingModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,
