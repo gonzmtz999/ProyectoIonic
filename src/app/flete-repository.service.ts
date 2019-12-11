@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Flete} from './coches';
+import {Flete} from './flete';
 import {FleteDataSourceService} from './flete-data-source.service';
 
 @Injectable({

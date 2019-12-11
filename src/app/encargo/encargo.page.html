@@ -1,0 +1,126 @@
+<ion-content>
+  <div class="ion-padding">
+    <img src="../../assets/FF.png">
+    <br><br>
+    <form name="form" #f="ngForm" (ngSubmit)="(clientForm)">
+      <ion-input placeholder="DIRECCION:" type="text" name="direccion" id="direccion" [(ngModel)]="data.direccion"
+        #direccion="ngModel" required minlength="5" pattern="[a-zA-Z ]*"></ion-input>
+      <div *ngIf="direccion.invalid || (direccion.dirty && direccion.touched)">
+        <p *ngIf="direccion.hasError('required')" class="inputalert">
+          Direccion requerida
+        </p>
+        <p *ngIf="direccion.hasError('minlength')" class="alerta">
+          La direccion debe tener más de cinco letras
+        </p>
+        <p *ngIf="direccion.hasError('pattern')">
+          No puede poner numeros
+        </p>
+      </div>
+
+      <ion-input placeholder="ESTADO:" type="text" name="estado" id="estado" [(ngModel)]="data.estado"
+        #estado="ngModel" required minlength="5" pattern="[a-zA-Z ]*"></ion-input>
+      <div *ngIf="estado.invalid || (estado.dirty && estado.touched)">
+        <p *ngIf="estado.hasError('required')" class="inputalert">
+          Elija un estado
+        </p>
+        <p *ngIf="estado.hasError('minlength')" class="alerta">
+          El estado debe tener más de cinco caracteres
+        </p>
+        <p *ngIf="estado.hasError('pattern')">
+          No puede poner numeros
+        </p>
+      </div>
+
+      <ion-input placeholder="CIUDAD:" type="text" name="ciudad" id="ciudad" [(ngModel)]="data.ciudad"
+        #ciudad="ngModel" required minlength="5" pattern="[a-zA-Z ]*"></ion-input>
+      <div *ngIf="ciudad.invalid || (ciudad.dirty && ciudad.touched)">
+        <p *ngIf="ciudad.hasError('required')" class="inputalert">
+          Elija una ciudad
+        </p>
+        <p *ngIf="ciudad.hasError('minlength')" class="alerta">
+          La ciudad debe tener más de cinco caracteres
+        </p>
+        <p *ngIf="ciudad.hasError('pattern')">
+          No puede poner numeros
+        </p>
+      </div>
+
+      <ion-input placeholder="NUMERO MUEBLES:" type="text" name="n_muebles" id="n_muebles" [(ngModel)]="data.n_muebles"
+      #n_muebles="ngModel" required maxlength="3" pattern="[0-9]+"></ion-input>
+      <div *ngIf="n_muebles.invalid || (n_muebles.dirty && n_muebles.touched)">
+        <p *ngIf="n_muebles.hasError('required')" class="inputalert">
+          Numero de muebles es requerido
+        </p>
+        <p *ngIf="n_muebles.hasError('maxlength')" class="alerta">
+          El numero de muebles debe tener maximo 3 digitos
+        </p>
+        <p *ngIf="n_muebles.hasError('pattern')">
+          No puede poner Letras
+        </p>
+      </div>
+
+      <ion-input placeholder="NUMERO TARJETA:" type="text" name="n_tarjeta" id="n_tarjeta" [(ngModel)]="data.n_tarjeta"
+      #n_tarjeta="ngModel" required maxlength="16" minlength="16" pattern="[0-9]+"></ion-input>
+      <div *ngIf="n_tarjeta.invalid || (n_tarjeta.dirty && n_tarjeta.touched)">
+        <p *ngIf="n_tarjeta.hasError('required')" class="inputalert">
+          Numero de tarjeta es requerido
+        </p>
+        <p *ngIf="n_tarjeta.hasError('minlength')" class="alerta">
+          El numero de tarjeta solo debe tener 16 digitos
+        </p>
+        <p *ngIf="n_tarjeta.hasError('maxlength')" class="alerta">
+          El numero de tarjeta solo debe tener 16 digitos
+        </p>
+        <p *ngIf="n_tarjeta.hasError('pattern')">
+          No puede poner Letras
+        </p>
+      </div>
+
+      <ion-input placeholder="CCV:" type="text" name="ccv" id="ccv" [(ngModel)]="data.ccv"
+      #ccv="ngModel" required maxlength="3" minlength="3" pattern="[0-9]+"></ion-input>
+      <div *ngIf="ccv.invalid || (ccv.dirty && ccv.touched)">
+        <p *ngIf="ccv.hasError('required')" class="inputalert">
+          CCV es requerido
+        </p>
+        <p *ngIf="ccv.hasError('maxlength')" class="alerta">
+          CCV solo debe tener 3 digitos
+        </p>
+        <p *ngIf="ccv.hasError('minlength')" class="alerta">
+          CCV solo debe tener 3 digitos
+        </p>
+        <p *ngIf="ccv.hasError('pattern')">
+          No puede poner Letras
+        </p>
+      </div>
+
+      <ion-input placeholder="FECHA VENCIMIENTO:" type="text" name="f_expiracion" id="f_expiracion" [(ngModel)]="data.f_expiracion"
+      #f_expiracion="ngModel" required maxlength="4" minlength="4" pattern="[0-9]+"></ion-input>
+      <div *ngIf="f_expiracion.invalid || (f_expiracion.dirty && f_expiracion.touched)">
+        <p *ngIf="f_expiracion.hasError('required')" class="inputalert">
+          Fecha expiracion es requerido
+        </p>
+        <p *ngIf="f_expiracion.hasError('maxlength')" class="alerta">
+          Fecha expiracion solo debe tener 4 digitos (ejemplo: 02 21)
+        </p>
+        <p *ngIf="f_expiracion.hasError('minlength')" class="alerta">
+          Fecha expiracion solo debe tener 4 digitos (ejemplo: 02 21)
+        </p>
+        <p *ngIf="f_expiracion.hasError('pattern')">
+          No puede poner Letras
+        </p>
+      </div>
+
+
+
+
+      <br>
+    
+      <ion-button color="tertiary" [routerLink]="['/evaluar']" type="submit" (click)="createEncargo(); presentAlert();
+     presentToast();presentToast();" [disabled]="!f.valid">Listo</ion-button>
+     
+    </form>
+    <br>
+    
+    <ion-button color="tertiary" [routerLink]="['/pedidos']">Cancelar</ion-button>
+  </div>
+</ion-content>

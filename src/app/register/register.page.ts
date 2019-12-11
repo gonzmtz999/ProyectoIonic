@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseAPIService } from '../firebase-api.service';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
-import { Flete } from '../coches';
+import { Flete } from '../flete';
 
 @Component({
   selector: 'app-register',
@@ -12,16 +12,16 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
-  data : any = {};
-  valor='';
+  // tslint:disable-next-line: member-ordering
+  data: any = {};
+  valor ='';
   fletes: Flete[]=[];
 
 
   constructor(private firebaseAPI: FirebaseAPIService,
     public alertController: AlertController,
     public loadingController: LoadingController,
-    public toastController: ToastController) 
-     { 
+    public toastController: ToastController) { 
       this.firebaseAPI.readQoute().
       subscribe((res)=> {
         this.fletes=res;
@@ -63,7 +63,7 @@ export class RegisterPage implements OnInit {
     //this.firebaseAPI.createCLient(this.data). 
     this.firebaseAPI.createClient(this.data).
      then(()=>{
-       console.log('Usuario creado');        
+       console.log('Usuario creado');
      },
      (err)=>{
        console.log(err);
