@@ -19,40 +19,34 @@ export class MapsPage {
     this.leafLetMap();
   }
 
-  
-  
-
   leafLetMap(){
     this.map = new Map('mapId').setView([18.4625, -97.3928],15);
 
     tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZ29uejIwMDAiLCJhIjoiY2sxODMyd3B3MWVuNzNsbmkydjUxanVnbyJ9.wU8LUJ3W6u4ZTULvornNBQ', {
-	  attribution: 'Map data &copy; <a href="pk.eyJ1IjoiZ29uejIwMDAiLCJhIjoiY2sxODMyd3B3MWVuNzNsbmkydjUxanVnbyJ9.wU8LUJ3W6u4ZTULvornNBQ">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+	 
 	  maxZoom: 18,
 	  id: 'mapbox.streets',
 	  accessToken: 'pk.eyJ1IjoiZ29uejIwMDAiLCJhIjoiY2sxODMyd3B3MWVuNzNsbmkydjUxanVnbyJ9.wU8LUJ3W6u4ZTULvornNBQ'
     }).addTo(this.map);
     
 
-    
-    
-    this.map.on('click',(e)=>{
-    console.log(e.latlng);
-    marker(e.latlng)
-    .addTo(this.map)
-    e.latlng.bindPopup("You clicked the map at " + e.latlng.toString())
-    .openPopup();  
-
-    })
-
     marker([18.473349, -97.389898])
     .addTo(this.map)
-    .bindPopup('Su coche: <br> Se encuentra aca')
+    .bindPopup('Usted se <br> encuentra aca')
     .openPopup();
 
+
+    this.map.on('click',(e)=>{
+      console.log(e.latlng);
+      marker(e.latlng)
+     .addTo(this.map).bindPopup("El flete puede llegar a la ubicacion<br> " + e.latlng.toString())
+      .openPopup(); 
+      })
     
 
         
     }
+    
     ionViewWillLeave(){
       this.map.remove();
     }
